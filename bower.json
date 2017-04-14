@@ -1,5 +1,6 @@
 {
   "name": "emberland",
   "dependencies": {
+    "leaflet": "^1.0.0"
   }
 }

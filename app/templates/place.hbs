@@ -1,0 +1,22 @@
+<div class="panel">
+  <h1> You are in {{model.place.subtitle}}</h1>
+  {{outlet}}
+</div>
+
+<div class="map">
+  <div class="breadcrumbs">
+    Back to {{#link-to 'place' model.boundaries.parent}}{{model.boundaries.parent_names}}{{/link-to}}
+  </div>
+  {{#leaflet-map bounds=model.place.bounds }}
+    {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+
+    {{geojson-layer geoJSON=model.place.outline.elements style=model.place.outline.style }}
+
+    {{#if model.boundaries.children.admin}}
+      {{geojson-layer geoJSON=model.boundaries.children.admin.geojson fillColor="red" onClick=(action "clickBoundary")}}
+    {{else if model.boundaries.children.council_districts}}
+      {{geojson-layer geoJSON=model.boundaries.children.council_districts.geojson fillColor="red" onClick=(action "clickBoundary")}}
+    {{/if}}
+
+  {{/leaflet-map}}
+</div>

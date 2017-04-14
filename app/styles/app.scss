@@ -1,0 +1,49 @@
+$pad: 20px;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex: 1
+}
+
+.sidebar {
+  background: #eee;
+  flex: 0 0 200px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.panel,
+.map {
+  background: #ddd;
+  display: flex;
+  flex: 1;
+}
+
+.map {
+  flex-direction: column;
+
+  .breadcrumbs {
+    background: #fff;
+    padding: $pad;
+  }
+
+  .leaflet-container {
+    display: flex;
+    flex: 1;
+  }
+}
